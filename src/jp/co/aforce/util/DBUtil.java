@@ -43,7 +43,8 @@ public class DBUtil {
 	private static String password = "";
 
 	//インスタンス化させない（インスタンス化する必要がないため）。
-	private DBUtil() {}
+	private DBUtil() {
+	}
 
 	/**
 	 * DBへのコネクションを張る
@@ -55,7 +56,7 @@ public class DBUtil {
 			//JDBC Driverのインスタンス化
 			Class.forName(sqlDriver).newInstance();
 			//コネクションの取得
-			conn = DriverManager.getConnection(url+database+"&user="+user+"&password="+password);
+			conn = DriverManager.getConnection(url + database + "&user=" + user + "&password=" + password);
 		}
 	}
 
@@ -81,10 +82,10 @@ public class DBUtil {
 	 */
 	public static ResultSet execute(String sql) throws Exception {
 		rs = null;
-		if(stmt.execute(sql)) {
+		if (stmt.execute(sql)) {
 			rs = stmt.getResultSet();
 			if (!rs.next())
-			return null;
+				return null;
 		}
 		return rs;
 	}
@@ -115,9 +116,9 @@ public class DBUtil {
 			// 通常はこのエクセプションの発生は考えにくい
 			// 仮に発生する状況が起きた時は、恐らくシステム・エラーが発生しているので
 			// 復旧する事は難しいと考えられるが、例外処理を記述しておくのが望ましい
-			} catch (SQLException e) {
-				//ログファイルに出力するのが一般的
-				e.printStackTrace();
+		} catch (SQLException e) {
+			//ログファイルに出力するのが一般的
+			e.printStackTrace();
 		}
 	}
 

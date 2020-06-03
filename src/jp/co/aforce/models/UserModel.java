@@ -12,7 +12,7 @@ public class UserModel {
 	public List<UserBean> getAllUsers() {
 
 		ResultSet rs = null;
-        List<UserBean> users = new ArrayList<UserBean>();
+		List<UserBean> users = new ArrayList<UserBean>();
 
 		try {
 			//DBに接続するための手続き
@@ -21,15 +21,17 @@ public class UserModel {
 
 			String SQL = "SELECT * FROM `users`;";
 
-		    rs =  DBUtil.execute(SQL);
+			rs = DBUtil.execute(SQL);
 
-		    rs.beforeFirst();
-		    while (rs.next()) {
-		    	UserBean userBean = new UserBean();
-		    	userBean.setUsername(rs.getString("username"));
-		    	userBean.setPassword(rs.getString("password"));
-                users.add(userBean);
-            }
+			rs.beforeFirst();
+			while (rs.next()) {
+				UserBean userBean = new UserBean();
+				userBean.setUsername(rs.getString("username"));
+				userBean.setPassword(rs.getString("password"));
+				userBean.setAge(rs.getInt("age"));
+				userBean.setNo(rs.getString("no"));
+				users.add(userBean);
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -38,10 +40,6 @@ public class UserModel {
 		}
 		return users;
 
-
 	}
 
-
 }
-
-

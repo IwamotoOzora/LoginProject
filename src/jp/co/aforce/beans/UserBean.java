@@ -6,12 +6,15 @@ public class UserBean implements Serializable {
 
 	private String username;
 	private String password;
+	private int age;
+	private String no;
 
-    public UserBean() {
+	public UserBean() {
 
-    }
+	}
 
-    public String getUsername() {
+	//ゲッター
+	public String getUsername() {
 		return username;
 	}
 
@@ -19,11 +22,28 @@ public class UserBean implements Serializable {
 		return password;
 	}
 
+	public int getAge() {
+		return age;
+	}
+
+	public String getNo() {
+		return no;
+	}
+
+	//セッター
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public void setNo(String no) {
+		this.no = no;
 	}
 }

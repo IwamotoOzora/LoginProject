@@ -6,13 +6,13 @@ import jp.co.aforce.util.DBUtil;
 
 public class LoginModel {
 
-	 /**
-     * 入力されたデータがDBに上に存在するかどうかを調べる。
-     *
-     * @param username ユーザ名
-     * @param password パスワード
-     * @return ログイン成功=true, 失敗=false
-     */
+	/**
+	* 入力されたデータがDBに上に存在するかどうかを調べる。
+	*
+	* @param username ユーザ名
+	* @param password パスワード
+	* @return ログイン成功=true, 失敗=false
+	*/
 	public boolean loginCheck(String username, String password) {
 		//実行結果を格納する変数
 		ResultSet rs = null;
@@ -23,7 +23,7 @@ public class LoginModel {
 			DBUtil.makeStatement();
 
 			//SQLを実行
-			String SQL = "SELECT * FROM `users` WHERE `username`='"+username+"' AND `password`='"+password+"'";
+			String SQL = "SELECT * FROM `users` WHERE `username`='" + username + "' AND `password`='" + password + "'";
 			rs = DBUtil.execute(SQL);
 
 		} catch (Exception e) {

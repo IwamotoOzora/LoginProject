@@ -7,7 +7,7 @@ public class LoginBean implements Serializable {
 
 	private String username; //ユーザネーム
 	private String password; //パスワード
-	private String emsg;     //エラーメッセージ
+	private String emsg; //エラーメッセージ
 
 	//引数なしのデフォルト・コンストラクタ
 	public LoginBean() {
@@ -39,7 +39,6 @@ public class LoginBean implements Serializable {
 	public void setEmsg(String emsg) {
 
 		this.emsg = emsg;
- 	}
-
+	}
 
 }

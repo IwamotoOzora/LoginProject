@@ -1,28 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page isELIgnored="false" %>
+<%@ page isELIgnored="false"%>
 
 <!DOCTYPE html>
 <html>
-       <head>
-             <meta charset="UTF-8">
-             <title>ログイン成功</title>
-       </head>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/success.css">
 
-       <body>
+<head>
+<meta charset="UTF-8">
+<title>ログイン成功|ユーザ一覧</title>
+</head>
 
-         <div class="msg">
-              <p>ようこそ${requestScope.loginBean.username}さん!</p>
-              <p>ログインに成功しました!</p>
-         </div>
+<body>
 
-         <c:forEach var="data" items="${users}">
-            <hr/>
-              <div>username:<c:out value="${data.username}"></c:out></div>
-              <div>password:<c:out value="${data.password}"></c:out></div>
-         </c:forEach>
+	<div class="msg">
+		<p>
+		   ようこそ<span class="name">${requestScope.loginBean.username}</span>さん!
+		</p>
+		<p>ログインに成功しました!</p>
+	</div>
 
-       </body>
+	<!-- ユーザデータ一覧のテーブル -->
+	<hr />
+	<table>
+		<tr>
+			<th colspan="4" class="userdata">ユーザデータ一覧</th>
+		</tr>
+
+		<tr>
+			<th>username</th>
+			<th>password</th>
+			<th>age</th>
+			<th>no</th>
+		</tr>
+
+		<c:forEach var="data" items="${users}">
+			<tr>
+				<td><c:out value="${data.username}"></c:out></td>
+				<td><c:out value="${data.password}"></c:out></td>
+				<td><c:out value="${data.age}"></c:out></td>
+				<td><c:out value="${data.no}"></c:out></td>
+			</tr>
+		</c:forEach>
+
+	</table>
+
+</body>
 
 </html>
